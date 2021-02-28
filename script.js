@@ -32,6 +32,7 @@ if ("geolocation" in navigator) {
   }
 
   function err(error) {
+    alert(`Ну и как теперь погоду определить (ツ)`)
     console.log(`ERROR(${error.code}): ${error.message}`);
   };
 
