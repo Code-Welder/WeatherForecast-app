@@ -210,7 +210,7 @@ input.city-name {
   height: 100%;
   top: 0;
   left: 50%;
-  border-left: 1px solid black;
+  border-left: 1px solid rgba(85, 85, 85, .6);
 }
 
 .descript {
@@ -252,7 +252,7 @@ input.city-name {
 .info-item {
   width: 100%;
   background-color: rgba(219, 219, 219, 0.2);
-  border-right: 1px solid black;
+  border-right: 1px solid rgba(85, 85, 85, .6);
 }
 
 .info-item:last-child {
