@@ -68,7 +68,7 @@ main {
 
 .open-button img {
   animation: flip 3s linear infinite;
-  filter: invert(90%);
+  filter: invert(50%);
 }
 
 @keyframes flip {
@@ -270,10 +270,4 @@ input.city-name {
 .info-unit {
   font-size: 1.2rem;
   font-weight: 700;
-}
-
-@media (max-width: 767px) {
-  .display {
-    color: rgb(241, 241, 241);
-  }
 }
