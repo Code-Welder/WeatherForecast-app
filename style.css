@@ -271,3 +271,9 @@ input.city-name {
   font-size: 1.2rem;
   font-weight: 700;
 }
+
+@media (max-width: 767px) {
+  .display {
+    color: rgb(241, 241, 241);
+  }
+}
