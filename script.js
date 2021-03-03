@@ -26,12 +26,12 @@ if ("geolocation" in navigator) {
     console.log(`ERROR(${error.code}): ${error.message}`);
   }
 } else {
-  console.log("location detection is not possible");
+    console.log("location detection is not possible");
 }
 
 async function parseJson(url) {
   const response = await fetch(url);
-  const json     = await response.json();
+  const json = await response.json();
   return json;
 }
 
@@ -47,62 +47,52 @@ async function getWeatherForecast(cityName) {
       cityName +
       "&units=metric&appid=9c727f2de77da6485708877073bc8d14&lang=ru"
   );
-  const json     = await response.json();
+  const json = await response.json();
   const forecast = getForcastProps(json);
 
   return forecast;
 }
 
 function renderForecast(forecast) {
-  const cityName     = document.querySelector(".city-name");
-  const currTemp     = document.querySelector(".curr-temperature");
+  const currName = document.querySelector(".curr-city-name");
+  const currTemp = document.querySelector(".curr-temperature");
   const descriptIcon = document.querySelector(".descript img");
   const descriptText = document.querySelector(".descript-text");
-  const wind         = document.querySelector(".wind .info-unit span");
-  const feelsLike    = document.querySelector(".feels-like .info-unit span");
-  const humidity     = document.querySelector(".humidity .info-unit span");
+  const wind = document.querySelector(".wind .info-unit span");
+  const feelsLike = document.querySelector(".feels-like .info-unit span");
+  const humidity = document.querySelector(".humidity .info-unit span");
 
-  cityName.placeholder     = forecast.name;
-  currTemp.textContent     = forecast.temp;
-  descriptIcon.src         = "./img/weather/" + forecast.icon.slice(0, 2) + "d.svg";
+  currName.textContent = forecast.name;
+  currTemp.textContent = forecast.temp;
+  descriptIcon.src = "./img/weather/" + forecast.icon.slice(0, 2) + "d.svg";
   descriptText.textContent = forecast.descript;
-  wind.textContent         = forecast.wind;
-  feelsLike.textContent    = forecast.feels_like;
-  humidity.textContent     = forecast.humidity;
+  wind.textContent = forecast.wind;
+  feelsLike.textContent = forecast.feels_like;
+  humidity.textContent = forecast.humidity;
 }
 
 function renderDate() {
-  const descriptText = document.querySelector(".descript-text");
-  const weatherApp   = document.querySelector(".weather-app");
-  const weekDay      = document.querySelector(".curr-week-day");
-  const day          = document.querySelector(".curr-day");
+  const currDay = document.querySelector('.curr-day')
+  const currMonth = document.querySelector('.curr-month')
+  const currYear = document.querySelector('.curr-year')
 
   const d = new Date();
-  const h = d.getHours();
 
-  if (6 > h || h > 18) {
-    weatherApp.style.backgroundImage = "url(./img/bg/background-n.jpg)";
-  } else {
-    weatherApp.style.backgroundImage = "url(./img/bg/background-d.jpg)";
-    descriptText.style.color = "#171720";
-  }
+  let day, month
 
-  const week = [
-    "Вс",
-    "Пн",
-    "Вт",
-    "Ср",
-    "Чт",
-    "Пт",
-    "Сб",
-  ];
+  d.getDate() < 10 ? currDay.textContent = '0' + d.getDate():
+                     currDay.textContent = d.getDate();
 
-  weekDay.textContent = week[d.getDay()];
-  day.textContent     = d.getDate();
+  d.getMonth() + 1 < 10 ? currMonth.textContent = '0' + (d.getMonth() + 1):
+                          currMonth.textContent = d.getMonth() + 1;
+
+
+
+  currYear.textContent = d.getFullYear()
 }
 
 function citySelection(arr) {
-  const input     = document.querySelector(".city-name");
+  const input = document.querySelector(".city-name");
   const citiesList = document.querySelector(".cities-list");
 
   input.oninput = function (e) {
@@ -170,4 +160,19 @@ function getForcastProps(json) {
   return obj;
 }
 
+function showCitySelector() {
+  const citySelector = document.querySelector('.city-selector')
+  const openBtn = document.querySelector('.open-button')
+  const closeBtn = document.querySelector('.city-selector-close')
+
+  openBtn.onpointerdown = function() {
+    citySelector.style.visibility = 'visible'
+  }
+
+  closeBtn.onpointerdown = function() {
+    citySelector.style.visibility = 'hidden'
+  }
+}
+
 renderDate();
+showCitySelector()
