@@ -23,6 +23,7 @@ if ("geolocation" in navigator) {
   }
 
   function err(error) {
+    document.querySelector('.city-selector').style.visibility = 'visible'
     console.log(`ERROR(${error.code}): ${error.message}`);
   }
 } else {
@@ -123,6 +124,7 @@ const citiesListObserver = new MutationObserver((mutations) => {
 
       document.querySelector(".city-name").value = "";
       document.querySelector(".city-name").placeholder = e.target.textContent;
+      document.querySelector('.city-selector').style.visibility = 'hidden'
 
       getWeatherForecast(e.target.textContent)
         .then((obj) => {
