@@ -13,7 +13,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url(./img/bg/background.jpg) no-repeat top;
+  background: url(../img/bg/background.jpg) no-repeat top;
   background-size: cover;
   background-color: rgb(39, 36, 36);
 }
@@ -48,39 +48,6 @@ main {
   margin: -15px;
 
   z-index: -1;
-}
-
-.open-button {
-  cursor: pointer;
-  position: absolute;
-  padding: 2px 4px;
-  background-color: rgba(29, 29, 29, 0.2);
-  border: 2px solid rgb(207, 207, 207);
-  border-radius: 50%;
-  top: .8rem;
-  left: 1.5rem;
-  transition: filter 80ms linear;
-}
-
-.open-button:hover {
-  filter: invert(90%);
-}
-
-.open-button img {
-  animation: flip 3s linear infinite;
-  filter: invert(50%);
-}
-
-@keyframes flip {
-  0% {
-    transform: rotate(-45deg);
-  }
-  50% {
-    transform: rotate(45deg);
-  }
-  100% {
-    transform: rotate(-45deg);
-  }
 }
 
 .display{
@@ -188,12 +155,48 @@ input.city-name {
 }
 
 .curr-city-name {
-  min-width: 200px;
+  position: relative;
+  width: 100%;
   margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
   font-family: 'Jura', sans-serif;
   font-size: 1.2rem;
   text-align: center;
   font-weight: 500;
+}
+
+.open-button {
+  cursor: pointer;
+  padding: 2px 4px;
+  background-color: rgba(29, 29, 29, 0.2);
+  border: 2px solid rgb(207, 207, 207);
+  border-radius: 50%;
+  transition: filter 80ms linear;
+}
+
+.open-button:hover {
+  filter: invert(90%);
+}
+
+.open-button img {
+  animation: flip 3s linear infinite;
+  filter: invert(50%);
+}
+
+@keyframes flip {
+  0% {
+    transform: rotate(-45deg);
+  }
+  50% {
+    transform: rotate(45deg);
+  }
+  100% {
+    transform: rotate(-45deg);
+  }
 }
 
 .curr-condition {
