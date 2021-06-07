@@ -35,6 +35,11 @@ if ("geolocation" in navigator) {
 
   function err(error) {
     console.log(`ERROR(${error.code}): ${error.message}`);
+
+    getWeatherForecast({cityName: 'Санкт-Петербург'})
+    .then( forecastOptions => {
+      insertWeatherForecast(forecastOptions, HTMLForecastNodes)
+    })
   }
 
 } else {

@@ -1,7 +1,7 @@
 import { setNodeText } from '../helpers.js'
 
 /**
- *
+ * Insert forecast in nodes
  * @param {object} forecastOptions - object with forecast options.
  * @param {string} forecastOptions.cityName - name of the city.
  * @param {string} forecastOptions.descript - weather description: clear\sunny etc
@@ -11,7 +11,7 @@ import { setNodeText } from '../helpers.js'
  * @param {string|number} forecastOptions.temp - temperature (celsius).
  * @param {string|number} forecastOptions.wind - wind (m/s)
  *
- * @param {object} nodes - object with element links for changing nodes content.
+ * @param {object} nodes - object with elems for changing their text content.
  * @param {Element} nodes.cityName
  * @param {Element} nodes.descript
  * @param {Element} nodes.feels_like

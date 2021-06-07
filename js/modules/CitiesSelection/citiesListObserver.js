@@ -4,6 +4,9 @@ const input = document.querySelector('.city-name')
 const citySelector = document.querySelector('.city-selector')
 const citiesList = document.querySelector(".cities-list")
 
+/**
+ * @param {function} cb - called by click on an hints list item
+ */
 export default function createHintsListObserver(cb) {
   const hintsListObserver = new MutationObserver(mutations => {
     const hintsList = mutations[0].target

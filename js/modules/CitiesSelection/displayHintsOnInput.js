@@ -4,7 +4,7 @@ const input = document.querySelector('.city-name')
 const citiesList = document.querySelector(".cities-list")
 
 /**
- * @param {Object[string]} hints - array with hints.
+ * @param {Object[string]} hints - array with hints (cities names).
  */
 
 export default function displayHintsOnInput(hints) {

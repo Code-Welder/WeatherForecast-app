@@ -1,24 +1,11 @@
 /**
  * Forecast base on (https://openweathermap.org/)
- * @param {object} obj with two fields.
- *
- * @param {string} [obj.cityName = Москва] - get weather by city name.
- * @param {object} [obj.coords = null] - get weather by coords (latitude, longitude).
- *
- * @param {string|number} obj.coords.lat - latitude coordinates.
- * @param {string|number} obj.coords.lon - longitude coordinates.
- *
- * @returns {Promise} Promise object with forecast parameters \rus.
- *
- * example: {
- *  cityName: "Москва",
- *  descript: "ясно",
- *  feels_like: 23,
- *  humidity: 47,
- *  icon: "01d",
- *  temp: 15, // celsius
- *  wind: 3, // m/s
- * }
+ * @param {object} location - object with two fields.
+ * @param {string} location.cityName - get weather by city name.
+ * @param {object} location.coords - get weather by coords (latitude, longitude).
+ * @param {string|number} location.coords.lat - latitude coordinates.
+ * @param {string|number} location.coords.lon - longitude coordinates.
+ * @returns {Promise} Promise object with forecast parameters | lang: ru - for city name and description.
  */
 
 export default async function getWeatherForecast({ cityName, coords }) {
@@ -50,6 +37,18 @@ export default async function getWeatherForecast({ cityName, coords }) {
  * @returns {Promise} Promise object - rework JSON from (https://openweathermap.org/current#parameter) API.
  * Weather condition codes for icons (https://openweathermap.org/weather-conditions).
  */
+
+/**
+ * example of return object: {
+ *  cityName: "Москва",
+ *  descript: "ясно",
+ *  feels_like: 23, // celsius
+ *  humidity: 47,
+ *  icon: "01d",
+ *  temp: 15, // celsius
+ *  wind: 3, // m/s
+ * }
+*/
 
 async function getForecastOptions(json) {
   return {
