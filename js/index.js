@@ -46,8 +46,12 @@ if ("geolocation" in navigator) {
   console.log("location detection is not possible");
 }
 
-fetch('../jsons/cities_names.json')
-  .then( response => response.json())
+fetch('../jsons/cities_names.json', {
+  method: 'GET',
+  headers: {
+    "Content-Type": "application/json",
+  },
+}).then( response => response.json())
   .then( citiesNames => {
     displayHintsOnInput(citiesNames)
   })
