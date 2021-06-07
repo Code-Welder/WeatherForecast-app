@@ -16,8 +16,30 @@ const HTMLForecastNodes = {
 
 showCitySelector()
 
-getWeatherForecast({cityName: 'Санкт-Петербург'})
-  .then(forecastOptions => insertWeatherForecast(forecastOptions, HTMLForecastNodes))
+if ("geolocation" in navigator) {
+  navigator.geolocation.getCurrentPosition(succes, err)
+
+  function succes(position) {
+    const location = {
+      coords: {
+        lat: position.coords.latitude,
+        lon: position.coords.longitude,
+      }
+    }
+
+    getWeatherForecast(location)
+    .then( forecastOptions => {
+      insertWeatherForecast(forecastOptions, HTMLForecastNodes)
+    })
+  }
+
+  function err(error) {
+    console.log(`ERROR(${error.code}): ${error.message}`);
+  }
+
+} else {
+  console.log("location detection is not possible");
+}
 
 fetch('../jsons/cities_names.json')
   .then( response => response.json())
