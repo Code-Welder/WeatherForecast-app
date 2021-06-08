@@ -18,62 +18,61 @@
   </head>
   <body>
     <main>
-      <div class="weather-app">
+      <div id="App">
 
-        <div class="display">
+        <div class="forecast">
 
-            <div class="city-selector">
+          <div class="city-selector" hidden>
+            <button class="btn-close">X</button>
 
-              <button class="city-selector-close">X</button>
-
-              <div class="curr-date">
-                <span class="curr-day">12</span>
-                <span class="curr-month">06</span>
-                <span class="curr-year">2016</span>
-              </div>
-
-              <div class="city-select">
-                <input class="city-name" type="text" placeholder="введите город">
-                <ul class="cities-list"></ul>
-              </div>
-
+            <div class="date">
+              <span class="js-day"></span>
+              <span class="js-month"></span>
+              <span class="js-year"></span>
             </div>
 
+            <div class="city-select">
+              <input class="city-name" type="text" placeholder="введите город">
+              <ul class="city-select__list"></ul>
+            </div>
+          </div>
 
-          <div class="display-weather">
-
+          <div class="display">
             <div class="curr-city-name">
-              <!-- <div class="open-button"><img src="./img/icons/map-locator.svg" alt="местоположение" width="20px"></div> -->
               <span></span>
             </div>
 
             <div class="curr-condition">
-              <div class="descript">
-                <img src="./img/weather/01d.svg" alt="" width="60px">
-                <div class="descript-text"></div>
+              <div class="description">
+                <img class="description__img" src="./img/weather/01d.svg" alt="" width="60px">
+                <div class="description__text"></div>
               </div>
-              <div class="temperature"><span class="curr-temperature"></span><sup class="temp-symbol">о</sup></div>
+
+              <div class="temperature"><span class="js-temperature"></span><sup class="temperature__symbol">о</sup></div>
             </div>
 
-            <div class="additional-info">
-              <div class="wind info-item">
-
-                <div class="info-title">Ветер</div>
-                 <div class="info-unit"><span></span> м/с</div>
+            <ul class="additional-info">
+              <li class="additional-info__item wind">
+                <div class="additional-info__title">Ветер</div>
+                <div class="additional-info__unit">
+                  <span class="js-wind"></span> м/с
                 </div>
+              </li>
 
-              <div class="feels-like info-item">
+              <li class="additional-info__item feels-like">
+                <div class="additional-info__title">По ощущениям</div>
+                <div class="additional-info__unit">
+                  <span class="js-feels-like"></span>*
+                </div>
+              </li>
 
-                <div class="info-title">По ощущениям</div>
-                 <div class="info-unit"><span></span>*</div>
-              </div>
-
-              <div class="humidity info-item">
-
-                <div class="info-title">Влажность</div>
-                <div class="info-unit"><span>0</span> %</div>
-              </div>
-            </div>
+              <li class="additional-info__item humidity">
+                <div class="additional-info__title">Влажность</div>
+                <div class="additional-info__unit">
+                  <span class="js-humidity">0</span>
+                   %</div>
+              </li>
+            </ul>
 
           </div>
 

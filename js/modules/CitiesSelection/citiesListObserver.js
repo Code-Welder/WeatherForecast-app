@@ -1,8 +1,8 @@
-import { hideNode, setInputPh, clearInput } from '../helpers.js'
+import { setInputPh, clearInput } from '../helpers.js'
+import { hideCitySelector } from './CitySelector.js'
 
 const input = document.querySelector('.city-name')
-const citySelector = document.querySelector('.city-selector')
-const citiesList = document.querySelector(".cities-list")
+const citiesList = document.querySelector(".city-select__list")
 
 /**
  * @param {function} cb - called by click on an hints list item
@@ -16,7 +16,7 @@ export default function createHintsListObserver(cb) {
         citiesList.innerHTML = ''
         clearInput(input)
         setInputPh(input, e.target.textContent)
-        hideNode(citySelector)
+        hideCitySelector()
 
         cb(e.target.textContent)
       })

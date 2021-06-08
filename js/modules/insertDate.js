@@ -1,10 +1,11 @@
 /**
  * Changing nodes textContent option for date display.
- * @param {Element} day
- * @param {Element} month
- * @param {Element} year
+ * @param {Object} nodes - object with elems where insert date
+ * @param {Element} nodes.day
+ * @param {Element} nodes.month
+ * @param {Element} nodes.year
  */
-export default function insertDate(day, month, year) {
+export default function insertDate({day, month, year}) {
   const date = new Date();
   const d = date.getDate();
   const m = date.getMonth() + 1; // why does January start at 0? JS why?
