@@ -2,7 +2,7 @@ import getWeatherForecast from './modules/Weather/getWeatherForecast.js'
 import insertWeatherForecast from './modules/Weather/insertWeatherForecast.js'
 import displayHintsOnInput from './modules/CitiesSelection/displayHintsOnInput.js'
 import createHintsListObserver from './modules/CitiesSelection/citiesListObserver.js'
-import toggleCitySelectorVisibility from './modules/CitiesSelection/CitySelector.js'
+import toggleCitySelectorVisibility, { showCitySelector} from './modules/CitiesSelection/CitySelector.js'
 import insertDate from './modules/insertDate.js'
 
 const HTMLForecastNodes = {
@@ -42,11 +42,7 @@ if ("geolocation" in navigator) {
 
   function err(error) {
     console.log(`ERROR(${error.code}): ${error.message}`);
-
-    getWeatherForecast({cityName: 'Санкт-Петербург'})
-    .then( forecastOptions => {
-      insertWeatherForecast(forecastOptions, HTMLForecastNodes)
-    })
+    showCitySelector()
   }
 
 } else {
